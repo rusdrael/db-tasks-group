@@ -15,4 +15,4 @@ Repositório para as atividades em grupo de BD2.
 
 ## Tarefas
 
-[Tarefa 03](tarefas/t03/t03.md)
+[Tarefa 03](tarefas/t03/)
