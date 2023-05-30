@@ -12,8 +12,11 @@ class Projeto(Base):
     situacao: str = Column(String(255))
     dataConclusao = Column(Date)
     depto_id: int = Column(Integer, ForeignKey("departamentos.codigo"))
-    depto = relationship("Departamento", back_populates="projeto")
     responsavel_id: int = Column(Integer, ForeignKey("funcionarios.codigo"))
-    responsavel = relationship("Funcionario", back_populates="projeto")
     equipe_id: int = Column(Integer, ForeignKey("equipes.codigo"))
-    equipe = relationship("Equipe", back_populates="projeto")
+
+    depto = relationship('Departamento', backref='depto_projeto')
+    responsavel = relationship('Funcionario', backref='resp_projeto')
+    equipe = relationship('Equipe', backref='projeto_equipe')
+
+    atividade = relationship('AtividadeProjeto', backref='projeto_atv')

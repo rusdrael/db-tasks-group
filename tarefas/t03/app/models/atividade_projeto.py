@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, PrimaryKeyConstraint
 from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
 from app.database.base_model import Base
 
 class AtividadeProjeto(Base):
@@ -9,7 +10,7 @@ class AtividadeProjeto(Base):
     )
 
     codAtividade: int = Column(Integer, ForeignKey("atividades.codigo"))
-    atividade = relationship("Atividade", back_populates="atividade_projeto")
     codProjeto: int = Column(Integer, ForeignKey("projetos.codigo"))
-    projeto = relationship("Projeto", back_populates="atividade_projeto")
 
+    atividade = relationship('Atividade', backref='atv_projeto')
+    projeto = relationship('Projeto', backref='projeto_atv')

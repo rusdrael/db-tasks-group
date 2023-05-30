@@ -11,6 +11,7 @@ class Funcionario(Base):
     dataNasc = Column(Date)
     salario: str = Column(String(255))
     supervisor_id: int = Column(Integer, ForeignKey("funcionarios.codigo"))
-    supervisor = relationship("Funcionario", back_populates="funcionario")
     depto_id: int = Column(Integer, ForeignKey("departamentos.codigo"))
-    depto = relationship("Departamento", back_populates="funcionario")
+
+    supervisor = relationship('Funcionario', remote_side=[codigo], backref='supervisor_func')
+    depto = relationship('Departamento', backref='depto_funcionario', foreign_keys=[depto_id])

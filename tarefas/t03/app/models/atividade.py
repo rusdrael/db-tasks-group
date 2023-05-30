@@ -10,4 +10,3 @@ class Atividade(Base):
     dataFim = Column(Date)
     situacao: str = Column(String(255))
     dataConclusao = Column(Date)
-

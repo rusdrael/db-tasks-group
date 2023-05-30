@@ -9,4 +9,4 @@ class Departamento(Base):
     sigla: str = Column(String(15), unique=True, nullable=False)
     descricao: str = Column(String(25), nullable=False)
     gerente_id: int = Column(Integer, ForeignKey("funcionarios.codigo"))
-    gerente = relationship("Funcionario", back_populates="departamento")
+    gerente = relationship('Funcionario', backref='gerente_depto', foreign_keys=[gerente_id])

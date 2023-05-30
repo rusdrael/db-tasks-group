@@ -9,6 +9,7 @@ class AtividadeMembro(Base):
     )
 
     codAtividade: int = Column(Integer, ForeignKey("atividades.codigo"))
-    atividade = relationship("Atividade", back_populates="atividade_membro")
     codMembro: int = Column(Integer, ForeignKey("membros.codigo"))
-    projeto = relationship("Membro", back_populates="atividade_membro")
+
+    atividade = relationship('Atividade', backref='atividade_atividade')
+    membro = relationship('Membro', backref='atv_membro')
