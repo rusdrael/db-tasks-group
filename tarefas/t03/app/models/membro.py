@@ -8,6 +8,5 @@ class Membro(Base):
     codigo: int = Column(Integer, primary_key=True, index=True)
     codEquipe: int = Column(Integer, ForeignKey("equipes.codigo"))
     codFuncionario: int = Column(Integer, ForeignKey("funcionarios.codigo"))
-
-    membro_equipe = relationship('Equipe', backref='membro_equipe')
-    funcionario = relationship('Funcionario', backref='equipe_funcionario')
+    membro_equipe = relationship('Equipe', backref='membros')
+    funcionario = relationship('Funcionario', backref='membros')

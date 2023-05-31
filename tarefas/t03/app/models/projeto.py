@@ -14,9 +14,6 @@ class Projeto(Base):
     depto_id: int = Column(Integer, ForeignKey("departamentos.codigo"))
     responsavel_id: int = Column(Integer, ForeignKey("funcionarios.codigo"))
     equipe_id: int = Column(Integer, ForeignKey("equipes.codigo"))
-
-    depto = relationship('Departamento', backref='depto_projeto')
-    responsavel = relationship('Funcionario', backref='resp_projeto')
-    equipe = relationship('Equipe', backref='projeto_equipe')
-
-    atividade = relationship('AtividadeProjeto', backref='projeto_atv')
+    depto = relationship('Departamento', backref='projetos')
+    responsavel = relationship('Funcionario', backref='projetos')
+    equipe = relationship('Equipe', backref='projetos')
