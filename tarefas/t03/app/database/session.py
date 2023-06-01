@@ -3,12 +3,6 @@ from typing import Callable, Optional
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from app.database.base_model import Base
-from faker import Faker
-from app.models.atividade import Atividade
-from app.models.atividade_projeto import AtividadeProjeto
-from app.models.equipe import Equipe
-from app.models.funcionario import Funcionario
-from app.models.departamento import Departamento
 
 __factory: Optional[Callable[[], Session]] = None
 log = logging.getLogger("uvicorn")
