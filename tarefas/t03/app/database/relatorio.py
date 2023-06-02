@@ -1,4 +1,5 @@
 from datetime import datetime
+from fastapi import Depends
 from app.models.atividade import Atividade
 from app.models.atividade_projeto import AtividadeProjeto
 from app.models.funcionario import Funcionario
@@ -6,11 +7,11 @@ from app.models.membro import Membro
 from app.models.projeto import Projeto
 from app.database.session import get_db
 
-def generate_project_report():
+def generate_project_report(db: Session = Depends(get_db)):
     # Consulta para obter informações dos projetos
 
     # Exibição das informações
-    for projeto in get_db.query(Projeto):
+    for projeto in db.query(Projeto):
         id_responsavel = projeto.responsavel_id
         nome_gerente = None
         qtd_membros_equipe = 0
@@ -20,18 +21,18 @@ def generate_project_report():
         soma_atraso_atividades = 0
         atraso = data_atual - projeto.dataFim
         
-        for funcionario in get_db.query(Funcionario):
+        for funcionario in db.query(Funcionario):
             if funcionario.codigo == id_responsavel:
                 nome_gerente = funcionario.nome
         
-        for membro in get_db.query(Membro):
+        for membro in db.query(Membro):
             if projeto.equipe_id == membro.codEquipe_id:
                 qtd_membros_equipe += 1
         
-        for atividade_projeto in get_db.query(AtividadeProjeto):
+        for atividade_projeto in db.query(AtividadeProjeto):
             if projeto.codigo == atividade_projeto.codProjeto:
                 qtd_atividades += 1
-                for atividade in get_db.query(Atividade):
+                for atividade in db.query(Atividade):
                     if (atividade.codigo == atividade_projeto.codAtividade) and atividade.situacao.lower() != "concluído":
                         qtd_atividades_atrasadas += 1
                         atraso_atividade = data_atual - atividade.dataFim
@@ -48,11 +49,11 @@ def generate_project_report():
         print("---------------------------------------------------")
 
 
-def run_project_report():
+def run_project_report(db: Session = Depends(get_db)):
     # Consulta para obter informações dos projetos
 
     # Exibição das informações
-    for projeto in get_db.query(Projeto):
+    for projeto in db.query(Projeto):
         id_responsavel = projeto.responsavel_id
         nome_gerente = None
         qtd_membros_equipe = 0
@@ -62,18 +63,18 @@ def run_project_report():
         soma_atraso_atividades = 0
         atraso = data_atual - projeto.dataFim
         
-        for funcionario in get_db.query(Funcionario):
+        for funcionario in db.query(Funcionario):
             if funcionario.codigo == id_responsavel:
                 nome_gerente = funcionario.nome
         
-        for membro in get_db.query(Membro):
+        for membro in db.query(Membro):
             if projeto.equipe_id == membro.codEquipe_id:
                 qtd_membros_equipe += 1
         
-        for atividade_projeto in get_db.query(AtividadeProjeto):
+        for atividade_projeto in db.query(AtividadeProjeto):
             if projeto.codigo == atividade_projeto.codProjeto:
                 qtd_atividades += 1
-                for atividade in get_db.query(Atividade):
+                for atividade in db.query(Atividade):
                     if (atividade.codigo == atividade_projeto.codAtividade) and atividade.situacao.lower() != "concluído":
                         qtd_atividades_atrasadas += 1
                         atraso_atividade = data_atual - atividade.dataFim
