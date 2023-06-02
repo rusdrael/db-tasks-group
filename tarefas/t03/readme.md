@@ -5,6 +5,9 @@
 ## Respostas das questões
 
 - [Questão 02](/tarefas/t03/app/api/routes/odbc.py)
+- [Questão 03.b](/tarefas/t03/app/api/routes/atividades.py)
+- [Questão 04](/tarefas/t03/app/database/populate.py)
+- [Questão 05](/tarefas/t03/app/database/relatorio.py)
 
 ## Resumo sobre ORM
 <p align = justify>
