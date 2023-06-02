@@ -7,7 +7,7 @@ from app.models.membro import Membro
 from app.models.projeto import Projeto
 from app.database.session import get_db
 
-def generate_project_report(db: Session = Depends(get_db)):
+def gera_relatorio_do_projeto(db: Session = Depends(get_db)):
     # Consulta para obter informações dos projetos
 
     # Exibição das informações
@@ -49,7 +49,7 @@ def generate_project_report(db: Session = Depends(get_db)):
         print("---------------------------------------------------")
 
 
-def run_project_report(db: Session = Depends(get_db)):
+def relatorio_projetos(db: Session = Depends(get_db)):
     # Consulta para obter informações dos projetos
 
     # Exibição das informações
@@ -83,4 +83,4 @@ def run_project_report(db: Session = Depends(get_db)):
 # Chamada do procedimento
 
 if __name__ == '__main__':
-    generate_project_report()
+    gera_relatorio_do_projeto()

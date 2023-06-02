@@ -35,6 +35,7 @@ def global_init() -> None:
     from app.models.projeto import Projeto
     from app.models.atividade_membro import AtividadeMembro
     from app.models.atividade_projeto import AtividadeProjeto
+    from app.models.log import Log
 
     Base.metadata.create_all(engine)
 
