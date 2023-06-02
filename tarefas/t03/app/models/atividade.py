@@ -7,6 +7,6 @@ class Atividade(Base):
     codigo: int = Column(Integer, primary_key=True, index=True)
     descricao: str = Column(String(45))
     dataInicio = Column(Date)
-    dataFim = Column(Date)
-    situacao: str = Column(String(255))
+    dataFim = Column(Date, index=True)
+    situacao: str = Column(String(255), index=True)
     dataConclusao = Column(Date)

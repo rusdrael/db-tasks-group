@@ -8,7 +8,7 @@ class AtividadeProjeto(Base):
         PrimaryKeyConstraint('codAtividade', 'codProjeto'),
     )
 
-    codAtividade: int = Column(Integer, ForeignKey("atividades.codigo"))
-    codProjeto: int = Column(Integer, ForeignKey("projetos.codigo"))
+    codAtividade: int = Column(Integer, ForeignKey("atividades.codigo"), index=True)
+    codProjeto: int = Column(Integer, ForeignKey("projetos.codigo"), index=True)
     atividade = relationship('Atividade', backref='atividade_projeto')
     projeto = relationship('Projeto', backref='atividade_projeto')

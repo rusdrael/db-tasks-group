@@ -8,7 +8,7 @@
 - [Questão 03.b](/tarefas/t03/app/api/routes/atividades.py)
 - [Questão 04](/tarefas/t03/app/database/populate.py)
 - [Questão 05](/tarefas/t03/app/database/relatorio.py)
-
+- **Questão 07:** Inidices presentes nos models da [questão 05](/tarefas/t03/app/database/relatorio.py)
 ## Resumo sobre ORM
 <p align = justify>
 Object Relational Mapper (ORM) é uma técnica de programação que permite mapear objetos de uma linguagem de programação para estruturas de dados em um banco de dados relacional. O objetivo do ORM é facilitar a interação entre um aplicativo orientado a objetos e um banco de dados relacional, fornecendo uma camada de abstração que permite manipular os dados do banco de dados usando objetos e métodos da linguagem de programação, utilizado para facilitar a interação entre o aplicativo e o banco de dados, simplificanco o desenvolvimento, melhorando a produtividade e aumentando a legibilidade do código.

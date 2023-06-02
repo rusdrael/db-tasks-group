@@ -8,7 +8,7 @@ class Projeto(Base):
     codigo: int = Column(Integer, primary_key=True, index=True)
     descricao: str = Column(String(45))
     dataInicio = Column(Date)
-    dataFim = Column(Date)
+    dataFim = Column(Date, index=True)
     situacao: str = Column(String(255))
     dataConclusao = Column(Date)
     depto_id: int = Column(Integer, ForeignKey("departamentos.codigo"))
