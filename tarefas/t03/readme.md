@@ -8,6 +8,7 @@
 - [Questão 03.b](/tarefas/t03/app/api/routes/atividades.py)
 - [Questão 04](/tarefas/t03/app/database/populate.py)
 - [Questão 05](/tarefas/t03/app/database/relatorio.py)
+- [Questão 06](/tarefas/t03/app/database/calcula_tempo.py)
 - **Questão 07:** Inidices presentes nos models da [questão 05](/tarefas/t03/app/database/relatorio.py)
 ## Resumo sobre ORM
 <p align = justify>
