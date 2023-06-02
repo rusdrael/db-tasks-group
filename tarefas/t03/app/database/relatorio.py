@@ -48,38 +48,6 @@ def gera_relatorio_do_projeto(db: Session = Depends(get_db)):
         print("A soma de dias das atividades atrasadas é:", soma_atraso_atividades if soma_atraso_atividades > 0 else "N/A")
         print("---------------------------------------------------")
 
-
-def relatorio_projetos(db: Session = Depends(get_db)):
-    # Consulta para obter informações dos projetos
-
-    # Exibição das informações
-    for projeto in db.query(Projeto):
-        id_responsavel = projeto.responsavel_id
-        nome_gerente = None
-        qtd_membros_equipe = 0
-        qtd_atividades = 0
-        qtd_atividades_atrasadas = 0
-        data_atual = datetime.now()
-        soma_atraso_atividades = 0
-        atraso = data_atual - projeto.dataFim
-        
-        for funcionario in db.query(Funcionario):
-            if funcionario.codigo == id_responsavel:
-                nome_gerente = funcionario.nome
-        
-        for membro in db.query(Membro):
-            if projeto.equipe_id == membro.codEquipe_id:
-                qtd_membros_equipe += 1
-        
-        for atividade_projeto in db.query(AtividadeProjeto):
-            if projeto.codigo == atividade_projeto.codProjeto:
-                qtd_atividades += 1
-                for atividade in db.query(Atividade):
-                    if (atividade.codigo == atividade_projeto.codAtividade) and atividade.situacao.lower() != "concluído":
-                        qtd_atividades_atrasadas += 1
-                        atraso_atividade = data_atual - atividade.dataFim
-                        soma_atraso_atividades += atraso_atividade.days
-
 # Chamada do procedimento
 
 if __name__ == '__main__':
