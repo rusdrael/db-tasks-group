@@ -3,6 +3,9 @@ from app.models.atividade_projeto import AtividadeProjeto
 from app.models.equipe import Equipe
 from app.models.funcionario import Funcionario
 from app.models.departamento import Departamento
+from app.models.membro import Membro
+from app.models.projeto import Projeto
+from app.models.atividade_membro import AtividadeMembro
 from random import choice
 from faker import Faker
 from app.database.session import get_db
