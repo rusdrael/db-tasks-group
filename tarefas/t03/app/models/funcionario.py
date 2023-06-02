@@ -5,7 +5,7 @@ from app.database.base_model import Base
 class Funcionario(Base):
     __tablename__ = "funcionarios"
 
-    codigo: int = Column(Integer, primary_key=True, index=True)
+    codigo: int = Column(Integer, primary_key=True, autoincrement=True, index=True)
     nome: str = Column(String(255), nullable=False)
     sexo: str = Column(String(1))
     dataNasc = Column(Date)

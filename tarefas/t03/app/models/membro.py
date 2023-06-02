@@ -5,7 +5,7 @@ from app.database.base_model import Base
 class Membro(Base):
     __tablename__ = "membros"
 
-    codigo: int = Column(Integer, primary_key=True, index=True)
+    codigo: int = Column(Integer, primary_key=True, autoincrement=True, index=True)
     codEquipe: int = Column(Integer, ForeignKey("equipes.codigo"))
     codFuncionario: int = Column(Integer, ForeignKey("funcionarios.codigo"), index=True)
     membro_equipe = relationship('Equipe', backref='membros')
